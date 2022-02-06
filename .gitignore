@@ -1,0 +1,16 @@
+#python
+__pycache__
+
+#vagrant
+# Vagrantfile
+.vagrant
+*.log
+
+#other
+old
+venv
+
+
+#IDE
+.idea
+.vscode

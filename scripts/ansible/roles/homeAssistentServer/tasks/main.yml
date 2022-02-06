@@ -1,0 +1,39 @@
+---
+- name: Install specified python requirements
+  pip:
+    requirements: "{{ pip3_requirements_path }}"
+
+- name: Prepare dir
+  file:
+    path:  "{{ app_path }}"
+    state: directory
+    recurse: true
+    mode:  '0755'
+    owner:  root
+    group:  root 
+
+- name: prepare app
+  copy:
+    dest:  "{{ app_path }}"
+    src: "{{ app_src_path }}" 
+    remote_src: true # not required. Influence whether C(src) needs to be transferred or already is present remotely. If C(no), it will search for C(src) at originating/master machine. If C(yes) it will go to the remote/target machine for the C(src). C(remote_src) supports recursive copying as of version 2.8. C(remote_src) only works with C(mode=preserve) as of version 2.6.
+    owner:  root
+    group:  root
+
+
+- name: Create python daemon
+  ansible.builtin.template:
+    src: homeAssistent.service.j2
+    dest: /etc/systemd/system/homeAssistent.service
+    group: root
+    owner: root
+    mode: 0640
+
+- name: Enable daemon
+  systemd:
+    name: homeAssistent.service
+    state: started
+    enabled: true
+    daemon_reload: true
+
+...

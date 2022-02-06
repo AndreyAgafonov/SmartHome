@@ -1,0 +1,20 @@
+---
+# ntp_timezone: Europe/Moscow
+# domain: cloud16.home
+
+ansible_user: ubuntu
+ansible_ssh_private_key_file: /vagrant/ClientInstaller/conf/vagrant/ssh_key
+ansible_python_interpreter: /usr/bin/python3
+
+
+# ntp_timezone: Europe/Moscow
+# domain: cloud16.home
+# default_packages:
+#   - python3
+#   - ntp
+#   - python3-cryptography
+#   - python3-pip
+#   - mc
+#   - jq
+
+...

@@ -1,0 +1,39 @@
+{% extends 'smarthome/settings-0-base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static '/css/settings.css' %}">
+{% endblock %}
+
+{% block  settings-body %}
+
+
+    {% for agent in contex.agentList %}
+        <div>
+            {{ agent.name }}
+            {{ agent.address }}
+            <button class="login100-form-btn">
+                Install
+            </button>
+        </div>
+    {% endfor %}
+    <form action="/settings/" method="post">
+        {% csrf_token %}
+        {{ form.as_table }}
+{#         <input type="hidden" name="csrfmiddlewaretoken">#}
+        {% for item in form %}
+        <div>
+            <label for="{{ item.name }}">{{ item.name }}:</label>
+            <input name="{{ item.description }}" id="{{ item.name }}" type={{ item.widget_type }}>
+        </div>
+        {% endfor %}
+        <button>
+            Save changes
+        </button>
+    </form>
+    </div>
+
+
+{% endblock %}
+
+

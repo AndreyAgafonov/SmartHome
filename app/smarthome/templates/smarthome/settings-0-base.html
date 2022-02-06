@@ -1,0 +1,28 @@
+{% extends 'smarthome/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static '/css/settings.css' %}">
+{% endblock %}
+
+{% block  content-container %}
+    {#    <h1>{{ header }}</h1>#}
+
+
+    <div class="settings">
+        <div class="settings-container">
+            <h3 class="settings-container-title">settings</h3>
+            <div class="settings-left-navigation">
+                {% for menu in settings_menu|dictsort:"output_number" %}
+                    <a href="{% url menu.url_name %}{{ menu.name }}" class="settings-navi-button">{{ menu.name }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="settings-body">
+            <h1 class="settings-body-header">{{ settingsMenu }}</h1>
+            {% block settings-body %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}
+
+

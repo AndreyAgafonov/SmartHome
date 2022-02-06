@@ -1,0 +1,1 @@
+[{"model": "smarthome.settingscategory", "pk": 1, "fields": {"name": "General", "image": "", "description": ""}}, {"model": "smarthome.settingscategory", "pk": 2, "fields": {"name": "Agents", "image": "", "description": ""}}]

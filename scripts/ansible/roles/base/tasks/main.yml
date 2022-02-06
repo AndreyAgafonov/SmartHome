@@ -1,0 +1,40 @@
+---
+# - name: asdfa
+#   include_vars: defaults/main.yml
+
+- name: BASE |Install packages
+  apt:
+    name: "{{ default_packages }}"
+    state: present
+
+- name: BASE |Set timezone
+  timezone:
+    name: "{{ ntp_timezone }}"
+
+- name: BASE |Enable ntpd
+  systemd:
+    name: ntp
+    enabled: true
+    state: restarted
+
+- name:  BASE | "Add all names to host (bacose we do not have a DNS Server)"
+  template:
+    src: hosts.j2
+    dest: /etc/hosts
+    mode: '0644'
+    owner: root
+    group: root
+
+- name:  BASE | Set hostname
+  hostname:
+    name: "{{ inventory_hostname }}"
+
+
+
+- name:  BASE |  Check  Firewall ufw  is Disable and started
+  systemd:
+    name: ufw
+    state: stopped
+    enabled: false
+
+...

@@ -1,0 +1,9 @@
+---
+# defaults file for homeAssistentServer
+pip3_requirements_path: /vagrant/app/scripts/requirements.txt
+
+app_path: /opt/homeAssistent
+app_port: 80
+app_host: 0.0.0.0
+app_src_path: /vagrant/app/
+#-------------------------^ должен быть что бы правильно рекурсивно скопировать.

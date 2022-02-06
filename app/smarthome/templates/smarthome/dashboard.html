@@ -1,0 +1,73 @@
+{% extends 'smarthome/base.html' %}
+{% load static %}
+
+{% block css %}
+{#    <link rel="stylesheet" href="{% static '/css/style.css' %}">#}
+    <link rel="stylesheet" href="{% static '/css/dashboard.css' %}">
+{%  endblock %}
+
+{% block  content-container %}
+
+    <div class="dashboadr-global">
+        <div class="dashboard-dropdown">
+            {% for  room in rooms %}
+                <div>
+                <input type="checkbox" id="checkbox-toggle-{{ room.name }}">
+                <label for="checkbox-toggle-{{ room.name }}">
+                    <img src="/media/{{ room.image }}" alt="">
+                    {{ room.roomType }} | {{ room.friendlyName }}
+                </label>
+
+                    <div class="dashboard-sortblock" >
+                        {% for sensor in room.sensors %}
+                            <div class="dashboard-item">
+                                <a href="#">
+                                    {% if sensor.image %}
+                                        <img
+                                                class="sensor-ico"
+                                                src="/media/{{ sensor.image }}"
+                                                alt="">:
+                                    {% else %}
+                                        {{ sensor.name  }}:
+                                    {% endif %}
+                                {{ sensor.value }}  {{ sensor.unit }}
+                                </a>
+
+                            </div>
+                        {% endfor %}
+                     </div>
+                </div>
+            {%  endfor %}
+        </div>
+    </div>
+
+
+{#################}
+{#    <div class="dashboadr-global">#}
+{#        <div class="dashboard-dropdown">#}
+{#            <input type="checkbox" id="checkbox-toggle">#}
+{#            <label for="checkbox-toggle">Click to Expand</label>#}
+{#            <div class="dashboard-sortblock">#}
+{#                <div class="dashboard-item">#}
+{#                    <a href="#">temperature bla bla bla</a>#}
+{#                </div>#}
+{#                <div class="dashboard-item">#}
+{#                    <a href="#">vlagnost' bla bla bla</a>#}
+{#                </div>#}
+{#                <div class="dashboard-item">#}
+{#                    <a href="#">temperature bla bla bla</a>#}
+{#                </div>#}
+{#                <div class="dashboard-item">#}
+{#                    <a class="href-item" href="#">vlagnost' bla bla bla</a>#}
+{#                </div>#}
+{#                <div class="dashboard-item">#}
+{#                    <a href="#">temperature bla bla bla</a>#}
+{#                </div>#}
+{#                <div class="dashboard-item">#}
+{#                    vlagnost' bla bla bla#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+
+{% endblock %}

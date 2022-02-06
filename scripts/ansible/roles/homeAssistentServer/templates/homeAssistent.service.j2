@@ -1,0 +1,17 @@
+[Unit]
+Description=homeAssistent.service GUI
+After=systemd-networkd.service
+Requires=systemd-networkd.service
+
+[Service]
+Type=simple
+#PermissionsStartOnly=true
+#User=root
+#TODO переделать на другого пользователя???
+ExecStart=/usr/bin/bash  -c "python3 manage.py runserver {{ app_host }}:{{ app_port }}"
+Restart=always
+WorkingDirectory={{ app_path }}
+
+
+[Install]
+WantedBy=default.target

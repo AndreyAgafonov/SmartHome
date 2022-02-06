@@ -1,0 +1,81 @@
+.settings-container {
+    /*background-color: bisque;*/
+    z-index:3
+}
+
+* {box-sizing: border-box; margin: 0;}
+.settings {
+
+    /*padding: 20px 10px;*/
+    /*background: darkred;*/
+    /*background: rgba(54, 25, 25, .3);*/
+    width: 100vh;
+    height: 100vh;
+    /*font-family: 'Roboto', sans-serif;*/
+    /*z-index:3;*/
+    /*position: relative;*/
+    display: flex;
+}
+
+.settings-container {
+    padding: 20px 10px;
+    /*background: darkred;*/
+    background: rgba(54, 25, 25, .3);
+    width: 300px;
+    height: 80vh;
+    /*font-family: 'Roboto', sans-serif;*/
+    z-index:3;
+    position: relative;
+    /*display: flow;*/
+    /*top: 0;*/
+    /*left: 0;*/
+}
+.settings-container-title {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /*color: #222;*/
+    font-size: 16px;
+    padding-left: 15px;
+    margin-bottom: 15px;
+    border-left: 2px solid #b99d61;
+    z-index:3
+}
+.settings-left-navigation {
+    z-index:3
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    max-width: 200px;
+
+}
+.settings-left-navigation a:before {
+    content: "\2014";
+    margin-right: 14px;
+}
+.settings-left-navigation a {
+    text-decoration: none;
+    outline: none;
+    display: block;
+    padding: 6px 0;
+    letter-spacing: 1px;
+    font-weight: 300;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .3s linear;
+}
+.settings-left-navigation a:hover {
+    color: #fce38a;
+}
+.settings-body {
+    padding: 20px 10px;
+    background: rgba(54, 25, 25, .3);
+    width: 100vh;
+    height: 80vh;
+    z-index:3;
+    position: absolute;
+    margin-left: 310px;
+}
+.settings-body-header {
+    text-transform: capitalize;
+}

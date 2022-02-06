@@ -1,0 +1,25 @@
+---
+- name: Prepare machines
+  hosts: all
+  become: true
+  # become_method: sudo
+  gather_facts: yes
+  roles:
+    - base
+
+
+- name: Deploy HomeAssistantServer
+  hosts: server
+  become: yes
+  roles:
+    - homeAssistentServer
+
+# - name: Deploy HomeAssistantClient
+#   hosts:
+#     # - mongodb
+#     # - haproxy
+#     # - gluster
+#     # - cer
+#   become: yes
+#   roles:
+#     # - filebeat

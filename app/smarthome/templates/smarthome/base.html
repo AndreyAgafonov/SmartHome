@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    {% block css %} {% endblock %}
+    <title>{{ conext.title|title}}</title>
+
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="header__inner">
+            <div class="header_logo">Nafanya</div>
+            <nav class="top_nav">
+                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="{% url 'smarthome:index' %}">Dashboard</a>
+{#                <a class="nav-link" href="{% url 'smarthome:metrics' %}">Metrics</a>#}
+                <a class="nav-link" href="{%  url 'smarthome:settings' %}">Settings</a>
+                <a class="nav-link" href="{%  url 'users:index' %}">sign-in</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+<div class="content-container">
+    {% block content-container  %} {% endblock %}
+</div>
+</div>
+<p>{{ username }}</p>
+</body>
+</html>

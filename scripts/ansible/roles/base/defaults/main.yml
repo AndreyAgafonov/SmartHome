@@ -1,0 +1,13 @@
+---
+ntp_timezone: Europe/Moscow
+domain: cloud16.home
+default_packages:
+  - python3
+  - ntp
+  - python3-cryptography
+  - python3-pip
+  - mc
+  - jq
+  - htop
+
+...

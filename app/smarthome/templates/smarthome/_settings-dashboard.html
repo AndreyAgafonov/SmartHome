@@ -1,0 +1,28 @@
+{% extends 'smarthome/settings-0-base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static '/css/settings.css' %}">
+{% endblock %}
+
+{% block  settings-body %}
+
+{#    <div class="settings-body">#}
+
+        {% for set in settings_list %}
+            <div>
+                <input type="checkbox" id={{ set.name }} name={{ set.name }}>
+                <label for={{ set.name }}>{{ set.name }}</label>
+            </div>
+        {% endfor %}
+        {#            <form action="/settings/" method="post">#}
+        {#                {% csrf_token %}#}
+        {#                {{ form.as_p }}#}
+        {##}
+        {#            </form>#}
+{#    </div>#}
+
+
+{% endblock %}
+
+

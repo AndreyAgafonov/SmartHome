@@ -1,0 +1,1 @@
+[{"model": "smarthome.settingstype", "pk": 1, "fields": {"name": "CheckboxField", "description": "Настройки, где значение может быть только True или False", "type": "CheckboxField"}}, {"model": "smarthome.settingstype", "pk": 2, "fields": {"name": "Other", "description": "Разные тестовые значения", "type": "TextField"}}]
